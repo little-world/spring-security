@@ -11,14 +11,13 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 public class SecurityConfiguration {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
         .httpBasic(Customizer.withDefaults())
         .authorizeHttpRequests(request -> request
-            //.requestMatchers("/user").hasRole("USER")
+            .requestMatchers("/user").hasRole("USER")
             .requestMatchers("/admin").hasRole("ADMIN")
             .anyRequest().authenticated()
         );

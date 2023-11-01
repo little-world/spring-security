@@ -23,7 +23,6 @@ public class HelloController {
   }
 
   @GetMapping("/user")
-  @PreAuthorize("hasRole('USER')")
   String helloUser() {
     return "hello, user";
   }
